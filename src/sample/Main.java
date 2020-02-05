@@ -27,6 +27,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.awt.Label;
+import java.awt.TextField;
 import java.util.Scanner;
 
 import static javafx.application.Application.launch;
@@ -42,23 +44,22 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Button button = new Button("button");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("action");
-            }
-        });
-        button.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("event handler");
-            }
-        });
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("sample.fxml"));
+        Parent root = loader.load();
 
-        Group root = new Group();
-        root.getChildren().add(button);
+        //Label label = new Label("");
+
+        //TableView<String> dataBase = new TableView();
+        //TableColumn <String> nameColumn = new TableColumn("Name");
+
+        //Group root = new Group();
+        //root.getChildren().addAll();
+
+
+
         primaryStage.setScene(new Scene(root, 400,300));
+        primaryStage.setTitle("My DataBase");
         primaryStage.show();
     }
 }
