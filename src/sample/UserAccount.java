@@ -10,7 +10,7 @@ public class UserAccount {
     private Boolean userVIP;
 
     UserAccount(Long userID, String userName, String password, String email, int blackMatter, int userLevel, Boolean userVIP) {
-        this.userID = userID;
+        this.userID = userID;   // is it necessary?
         this.userName = userName;
         this.password = password;
         this.email = email;

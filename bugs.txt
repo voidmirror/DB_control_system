@@ -1,0 +1,5 @@
+Controller:
+buttons btnClear, btnSubmit run over other fields
+
+Controller:
+sequentialTransition replays without interruption, if btnClear or btnSubmit clicked often

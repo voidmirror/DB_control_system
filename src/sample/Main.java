@@ -58,9 +58,11 @@ public class Main extends Application {
 
 
 
-        primaryStage.setScene(new Scene(root, 400,300));
+        primaryStage.setScene(new Scene(root, 609,361));
         primaryStage.setTitle("My DataBase");
         primaryStage.show();
+
+
     }
 }
 

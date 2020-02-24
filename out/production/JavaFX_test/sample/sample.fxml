@@ -4,22 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<TabPane prefHeight="361.0" prefWidth="609.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <tabs>
-    <Tab fx:id="tabCreateNewUser" closable="false" text="Untitled Tab 1">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-    <Tab fx:id="tabDataBase" closable="false" text="Untitled Tab 2">
+    <Tab fx:id="tabDataBase" closable="false" text="UserData">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <GridPane layoutX="60.0" layoutY="76.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                  <GridPane layoutX="60.0" layoutY="76.0" prefHeight="60.0" prefWidth="499.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="235.0" minWidth="235.0" prefWidth="235.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="235.0" prefWidth="235.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="177.0" minWidth="45.0" prefWidth="45.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -27,34 +22,88 @@
                       <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="UserName">
+                        <Label id="labelUserName" text="UserName">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="21.0" layoutY="13.0" text="Password" GridPane.columnIndex="1">
+                        <Label id="labelPassword" layoutX="21.0" layoutY="13.0" text="Password" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="121.0" layoutY="13.0" text="E-mail" GridPane.columnIndex="2">
+                        <Label id="labelEmail" layoutX="121.0" layoutY="13.0" text="E-mail" GridPane.columnIndex="2">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="221.0" layoutY="13.0" text="VIP" GridPane.columnIndex="3">
+                        <Label id="labelVIP" layoutX="221.0" layoutY="13.0" text="VIP" GridPane.columnIndex="3">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField GridPane.rowIndex="1" />
-                        <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField id="textFieldUserName" fx:id="textFieldUserName" onMouseClicked="#getTextFieldUserName" promptText="hey" GridPane.rowIndex="1" />
+                        <PasswordField id="passwordField" fx:id="passwordField" onAction="#removePasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField id="textFieldEmail" fx:id="textFieldEmail" promptText="your_mail@something.com" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <CheckBox id="checkBoxVIP" fx:id="checkBoxVIP" mnemonicParsing="false" onAction="#getCheckBoxVIP" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="60.0" layoutY="174.0" prefHeight="60.0" prefWidth="250.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="299.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="128.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="76.0" prefWidth="122.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label id="labelBlackMatter" text="Black Matter">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label id="labelUserLevel" layoutX="21.0" layoutY="13.0" text="User Level" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField id="textFieldBlackMatter" fx:id="textFieldBlackMatter" promptText="Number" GridPane.rowIndex="1" />
+                        <TextField id="textFieldUserLevel" fx:id="textFieldUserLevel" promptText="Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Label id="labelLog" fx:id="labelLog" layoutX="60.0" layoutY="252.0" prefHeight="53.0" prefWidth="329.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="220.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <GridPane layoutX="367.0" layoutY="204.0" prefHeight="57.0" prefWidth="215.0" AnchorPane.rightAnchor="27.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button id="btnClear" fx:id="btnClear" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#actionBtnClear" prefHeight="32.0" prefWidth="61.0" text="Clear" />
+                        <Button id="btnSubmit" fx:id="btnSubmit" onAction="#actionBtnSubmit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="Submit" textAlignment="CENTER" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
                      </children>
                   </GridPane>
                </children></AnchorPane>
       </content>
     </Tab>
+
+      <Tab fx:id="tabCreateNewUser" closable="false" text="Data Table">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+
+                  </children></AnchorPane>
+          </content>
+      </Tab>
   </tabs>
 </TabPane>
