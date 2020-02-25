@@ -14,6 +14,8 @@ import java.io.*;
 import java.net.URI;
 import java.nio.file.*;
 
+
+
 public class Controller {
     @FXML
     private Tab tabCreateNewUser;
@@ -43,7 +45,6 @@ public class Controller {
 
     public void getTextFieldUserName() {
         System.out.println(textFieldUserName.getText());
-        //checkBoxVIP.setSelected(true);
     }
 
     public void removePasswordField() {
@@ -114,9 +115,6 @@ public class Controller {
         sequentialTransition.play();
 
         String path = "D:\\Programmes files 7\\GitHub\\Repositories\\JavaFX_test\\src\\sample\\database.txt";
-        //String path = getClass().getResource("/").getPath();
-        //System.out.println(path);
-        //String path2 = path + "database.txt";
         File dataBase = new File(path);
         try {
             FileWriter fileWriter = new FileWriter(dataBase, true);
@@ -125,6 +123,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         //Path file = Paths.get("D:/Programmes files 7/GitHub/Repositories/JavaFX_test/src/sample/database.txt");
         //File dataBase = new File();

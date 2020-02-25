@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import static javafx.application.Application.launch;
 
@@ -25,6 +26,7 @@ public class Main extends Application {
         loader.setLocation(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
 
+        ArrayList<UserAccount> accountArrayList = new ArrayList<UserAccount>();
 
         primaryStage.setScene(new Scene(root, 609,361));
         primaryStage.setTitle("My DataBase");

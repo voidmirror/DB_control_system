@@ -1,7 +1,9 @@
 package sample;
 
+import java.util.Objects;
+
 public class UserAccount {
-    private Long userID;
+    //private Long userID;
     private String userName;
     private String password;
     private String email;
@@ -9,8 +11,8 @@ public class UserAccount {
     private int userLevel;
     private Boolean userVIP;
 
-    UserAccount(Long userID, String userName, String password, String email, int blackMatter, int userLevel, Boolean userVIP) {
-        this.userID = userID;   // is it necessary?
+    UserAccount(String userName, String password, String email, int blackMatter, int userLevel, Boolean userVIP) {
+        //this.userID = userID;   // is it necessary?
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -19,9 +21,9 @@ public class UserAccount {
         this.userVIP = userVIP;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
-    }
+//    public void setUserID(Long userID) {
+//        this.userID = userID;
+//    }
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -69,5 +71,39 @@ public class UserAccount {
 
     public Boolean getUserVIP() {
         return userVIP;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserAccount that = (UserAccount) o;
+        return blackMatter == that.blackMatter &&
+                userLevel == that.userLevel &&
+                userName.equals(that.userName) &&
+                password.equals(that.password) &&
+                email.equals(that.email) &&
+                userVIP.equals(that.userVIP);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, password, email, blackMatter, userLevel, userVIP);
+    }
+
+    public boolean isBigger(UserAccount account) {
+        int minLength = Math.min(userName.length(), account.userName.length());
+        boolean lengthEquals;
+        if (userName.length() == account.userName.length()) {
+            lengthEquals = true;
+        } else {
+            lengthEquals = false;
+        }
+
+        for (int i = 0; i < minLength; i++) {
+            if (userName[i] > account.userName[i]) {    // ??
+
+            }
+        }
     }
 }
