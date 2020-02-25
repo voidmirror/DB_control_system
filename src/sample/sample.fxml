@@ -6,7 +6,7 @@
 
 <TabPane prefHeight="361.0" prefWidth="609.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <tabs>
-    <Tab fx:id="tabDataBase" closable="false" text="UserData">
+    <Tab fx:id="tabCreateNewUser" closable="false" text="User Data">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -86,7 +86,7 @@
                     </rowConstraints>
                      <children>
                         <Button id="btnClear" fx:id="btnClear" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#actionBtnClear" prefHeight="32.0" prefWidth="61.0" text="Clear" />
-                        <Button id="btnSubmit" fx:id="btnSubmit" onAction="#actionBtnSubmit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="Submit" textAlignment="CENTER" GridPane.columnIndex="1">
+                        <Button id="btnSubmit" fx:id="btnSubmit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#actionBtnSubmit" prefHeight="45.0" prefWidth="95.0" text="Submit" textAlignment="CENTER" GridPane.columnIndex="1">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -97,12 +97,30 @@
       </content>
     </Tab>
 
-      <Tab fx:id="tabCreateNewUser" closable="false" text="Data Table">
+      <Tab fx:id="tabDataBaseSearch" closable="false" text="Data Search">
           <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
 
                   </children></AnchorPane>
+          </content>
+      </Tab>
+
+      <Tab fx:id="tabDataTable" closable="false" text="Data Table">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="17.0" layoutY="12.0" prefHeight="309.0" prefWidth="576.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
+                    <columns>
+                      <TableColumn id="columnUserName" fx:id="columnUserName" prefWidth="95.0" text="User Name" />
+                      <TableColumn id="columnPassword" fx:id="columnPassword" prefWidth="81.0" text="Password" />
+                        <TableColumn id="columnEmail" fx:id="columnEmail" prefWidth="197.0" text="E-mail" />
+                        <TableColumn id="columnBlackMatter" fx:id="columnBlackMatter" prefWidth="86.0" text="Black Matter" />
+                        <TableColumn id="columnUserLevel" fx:id="columnUserLevel" prefWidth="62.0" text="User Level" />
+                        <TableColumn id="columnVIP" fx:id="columnVIP" prefWidth="54.0" text="VIP" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
           </content>
       </Tab>
   </tabs>

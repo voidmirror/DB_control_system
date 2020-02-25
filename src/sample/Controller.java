@@ -10,6 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+import java.io.*;
+import java.net.URI;
+import java.nio.file.*;
+
 public class Controller {
     @FXML
     private Tab tabCreateNewUser;
@@ -106,8 +110,26 @@ public class Controller {
                 pauseTransition,
                 labelLogFadeOutTransition
         );
-        //sequentialTransition.delayProperty().setValue(Duration.millis(1000));
 
         sequentialTransition.play();
+
+        String path = "D:\\Programmes files 7\\GitHub\\Repositories\\JavaFX_test\\src\\sample\\database.txt";
+        //String path = getClass().getResource("/").getPath();
+        //System.out.println(path);
+        //String path2 = path + "database.txt";
+        File dataBase = new File(path);
+        try {
+            FileWriter fileWriter = new FileWriter(dataBase, true);
+            fileWriter.append("hell yeah");
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Path file = Paths.get("D:/Programmes files 7/GitHub/Repositories/JavaFX_test/src/sample/database.txt");
+        //File dataBase = new File();
+
+        //FileOutputStream outputStream = new FileOutputStream(dataBase, true);
+        //FileWriter fileWriter = new FileWriter("src/database.txt", true);
     }
 }
