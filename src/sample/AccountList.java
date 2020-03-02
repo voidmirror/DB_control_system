@@ -1,24 +1,18 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class AccountList {
-    private ArrayList<UserAccount> accountArrayList = new ArrayList<UserAccount>();
+    private HashMap dataBaseHashMap;
 
-    public void addAccount(UserAccount account) {
-        for (int i = 0; i < accountArrayList.size(); i++) {
-//            if (accountArrayList.get(i).getUserName() > account.getUserName()) {
-//
-//            }
-        }
+    public void createHashMap() {
+        dataBaseHashMap = new HashMap();
     }
 
-    public boolean accountAlreadyExists(UserAccount account) {
-        for (int i = 0; i < accountArrayList.size(); i++) {
-            if (account.equals(accountArrayList.get(i))) {
-                return true;
-            }
-        }
-        return false;
+    public HashMap getDataBaseHashMap() {
+        return dataBaseHashMap;
     }
 }

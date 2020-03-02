@@ -8,12 +8,21 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static javafx.application.Application.launch;
 
 public class Main extends Application {
 
     public static void main(String[] args) {
+        AccountList accountList = new AccountList();
+        accountList.createHashMap();
+        accountList.getDataBaseHashMap().put("stop", "step");
+        accountList.getDataBaseHashMap().get("stop");
+        System.out.println(accountList.getDataBaseHashMap().get("stop"));
+        System.out.println(accountList.getDataBaseHashMap().keySet().toArray());
         launch(args);
     }
 

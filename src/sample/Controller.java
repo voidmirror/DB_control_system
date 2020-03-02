@@ -114,7 +114,7 @@ public class Controller {
 
         sequentialTransition.play();
 
-        String path = "D:\\Programmes files 7\\GitHub\\Repositories\\JavaFX_test\\src\\sample\\database.txt";
+        String path = "src\\sample\\database.txt";
         File dataBase = new File(path);
         try {
             FileWriter fileWriter = new FileWriter(dataBase, true);
