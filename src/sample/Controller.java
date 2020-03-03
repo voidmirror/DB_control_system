@@ -43,21 +43,33 @@ public class Controller {
     private Label labelLog;
 
 
-    public void getTextFieldUserName() {
-        System.out.println(textFieldUserName.getText());
+    public String getTextFieldUserName() {
+        return textFieldUserName.getText();
     }
 
-    public void removePasswordField() {
-        passwordField.setOpacity(0);
-
+    public String getPasswordField() {
+        return passwordField.getText();
     }
 
-    public void getCheckBoxVIP() {
-        if (checkBoxVIP.isSelected()) {
-            System.out.println("Yes");
-        } else {
-            System.out.println("No");
-        }
+    public String getTextFieldEmail() {
+        //TODO: try/catch on '@' and others (regular expression needed)
+        return textFieldEmail.getText();
+    }
+
+    public int getTextFieldBlackMatter() {
+        int i = Integer.parseInt(textFieldBlackMatter.getText());
+        //TODO: try/catch NumberFormatException
+        return i;
+    }
+
+    public boolean getCheckBoxVIP() {
+        return checkBoxVIP.isSelected();
+    }
+
+    public int getTextFieldUserLevel() {
+        int i = Integer.parseInt(textFieldUserLevel.getText());
+        //TODO: try/catch NumberFormatException
+        return i;
     }
 
     public void actionBtnClear() {
@@ -124,6 +136,21 @@ public class Controller {
             e.printStackTrace();
         }
 
+        Main.accountList.getDataBaseHashMap().put(getTextFieldUserName(), new UserAccount(
+                getTextFieldUserName(),
+                getPasswordField(),
+                getTextFieldEmail(),
+                getTextFieldBlackMatter(),
+                getTextFieldUserLevel(),
+                getCheckBoxVIP()));
+//        System.out.println(Main.accountList.getDataBaseHashMap().get("hey"));
+//        System.out.println(Main.accountList.getDataBaseHashMap().get("hep"));
+
+        //TODO: separate function of listing all objects
+        for (Object o : Main.accountList.getDataBaseHashMap().keySet()) {
+            System.out.println(Main.accountList.getDataBaseHashMap().get(o));
+        }
+        System.out.println("-----------------------");
 
         //Path file = Paths.get("D:/Programmes files 7/GitHub/Repositories/JavaFX_test/src/sample/database.txt");
         //File dataBase = new File();

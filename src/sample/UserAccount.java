@@ -1,10 +1,12 @@
 package sample;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 public class UserAccount {
-    //private Long userID;
+    private UUID userID;
     private String userName;
     private String password;
     private String email;
@@ -12,8 +14,19 @@ public class UserAccount {
     private int userLevel;
     private Boolean userVIP;
 
-    UserAccount(String userName, String password, String email, int blackMatter, int userLevel, Boolean userVIP) {
+    public UserAccount() {
+        this.userID = generateUserID();
+        this.userName = "User";
+        this.password = "Pass";
+        this.email = "Email";
+        this.blackMatter = 0;
+        this.userLevel = 0;
+        this.userVIP = false;
+    }
+
+    UserAccount(String userName, String password, String email, int blackMatter, int userLevel, boolean userVIP) {
         //this.userID = userID;   // is it necessary?
+        this.userID = generateUserID();
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -21,10 +34,6 @@ public class UserAccount {
         this.userLevel = userLevel;
         this.userVIP = userVIP;
     }
-
-//    public void setUserID(Long userID) {
-//        this.userID = userID;
-//    }
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -48,6 +57,10 @@ public class UserAccount {
 
     public void setUserVIP(boolean userVIP) {
         this.userVIP = userVIP;
+    }
+
+    public UUID getUserID() {
+        return userID;
     }
 
     public String getUserName() {
@@ -108,5 +121,23 @@ public class UserAccount {
 //        }
 //    }
 
+    //TODO: claiming user ID by hashCode, add to toString() below
 
+    @Override
+    public String toString() {
+//        System.out.println(userID);
+//
+//        System.out.println(userName);
+//        System.out.println(password);
+//        System.out.println(email);
+//        System.out.println(blackMatter);
+//        System.out.println(userVIP);
+        String str = "\nUser ID: " + userID + "\nUserName: " + userName + "\nPassword: " + password + "\nEmail: " + email + "\nBlack Matter: " + blackMatter + "\nIs VIP: " + userVIP;
+        return str;
+    }
+
+
+    private UUID generateUserID() {
+        return UUID.randomUUID();
+    }
 }

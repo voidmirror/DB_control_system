@@ -43,7 +43,7 @@
                            </font>
                         </Label>
                         <TextField id="textFieldUserName" fx:id="textFieldUserName" onMouseClicked="#getTextFieldUserName" promptText="hey" GridPane.rowIndex="1" />
-                        <PasswordField id="passwordField" fx:id="passwordField" onAction="#removePasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <PasswordField id="passwordField" fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField id="textFieldEmail" fx:id="textFieldEmail" promptText="your_mail@something.com" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <CheckBox id="checkBoxVIP" fx:id="checkBoxVIP" mnemonicParsing="false" onAction="#getCheckBoxVIP" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                      </children>
@@ -51,7 +51,7 @@
                   <GridPane layoutX="60.0" layoutY="174.0" prefHeight="60.0" prefWidth="250.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="299.0">
                      <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="128.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="76.0" prefWidth="122.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="122.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
