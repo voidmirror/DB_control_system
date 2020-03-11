@@ -121,7 +121,6 @@ public class UserAccount {
 //        }
 //    }
 
-    //TODO: claiming user ID by hashCode, add to toString() below
 
     @Override
     public String toString() {

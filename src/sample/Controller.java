@@ -55,6 +55,8 @@ public class Controller {
     private TextField textFieldUserLevelInput;
     @FXML
     private CheckBox checkBoxVIPInput;
+    @FXML
+    private TextField textFieldSearch;
 
     // buttons
     @FXML
@@ -100,8 +102,13 @@ public class Controller {
     }
 
     public int getTextFieldBlackMatter() {
-        int i = Integer.parseInt(textFieldBlackMatter.getText());
-        //TODO: try/catch NumberFormatException
+        int i;
+        try {
+            i = Integer.parseInt(textFieldBlackMatter.getText());
+        } catch (NumberFormatException e) {
+            System.out.println("Number_pls");
+            return 0;
+        }
         return i;
     }
 
@@ -110,8 +117,13 @@ public class Controller {
     }
 
     public int getTextFieldUserLevel() {
-        int i = Integer.parseInt(textFieldUserLevel.getText());
-        //TODO: try/catch NumberFormatException
+        int i;
+        try {
+            i = Integer.parseInt(textFieldUserLevel.getText());
+        } catch (NumberFormatException e) {
+            System.out.println("Number_pls");
+            return 0;
+        }
         return i;
     }
 
@@ -251,16 +263,9 @@ public class Controller {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String s;
             StringBuffer stringBuffer = new StringBuffer();
-//            int ch;
-//            while (((ch=fileReader.read()) != -1) ) {
-//                stringBuffer.append((char)ch);
-//                fileReader
-//            }
 
             s = bufferedReader.readLine();
             while (s != null) {
-//                stringBuffer.append(s);
-//                System.out.println(stringBuffer);
                 System.out.println(s);
 
                 ArrayList<String> arrayList = new ArrayList<String>();
@@ -304,6 +309,86 @@ public class Controller {
             //TODO: labelLog transition
             System.out.println("Check failed");
             textFieldDelete.setText("");
+        }
+    }
+
+    public void searchUserName() {
+        String s = textFieldSearch.getText();
+        if (Main.accountList.getDataBaseHashMap().containsKey(s)) {
+            usersData.removeAll(usersData);
+            tableViewUsers.setItems(usersData);
+            System.out.println(Main.accountList.getDataBaseHashMap().get("qwe"));
+            usersData.add((UserAccount) Main.accountList.getDataBaseHashMap().get(textFieldSearch.getText()));
+        } else {
+            textFieldSearch.setText("Not_found");
+        }
+    }
+
+    public void searchPassword() {
+        String s = textFieldSearch.getText();
+        usersData.removeAll(usersData);
+        tableViewUsers.setItems(usersData);
+        for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+            if (((UserAccount) o).getPassword().equals(s)) {
+                //System.out.println("yep");
+                usersData.add((UserAccount) o);
+            }
+        }
+    }
+
+    public void searchEmail() {
+        String s = textFieldSearch.getText();
+        usersData.removeAll(usersData);
+        tableViewUsers.setItems(usersData);
+        for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+            if (((UserAccount) o).getEmail().equals(s)) {
+                //System.out.println("yep");
+                usersData.add((UserAccount) o);
+            }
+        }
+    }
+
+    public void searchBlackMatter() {
+        try {
+            String s = textFieldSearch.getText();
+            usersData.removeAll(usersData);
+            tableViewUsers.setItems(usersData);
+            for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+                if (((UserAccount) o).getBlackMatter() == (Integer.parseInt(s))) {
+                    //System.out.println("yep");
+                    usersData.add((UserAccount) o);
+                }
+            }
+        } catch (NumberFormatException e) {
+            textFieldSearch.setText("Number_pls");
+        }
+    }
+
+    public void searchUserLevel() {
+        try {
+            String s = textFieldSearch.getText();
+            usersData.removeAll(usersData);
+            tableViewUsers.setItems(usersData);
+            for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+                if (((UserAccount) o).getUserLevel() == (Integer.parseInt(s))) {
+                    //System.out.println("yep");
+                    usersData.add((UserAccount) o);
+                }
+            }
+        } catch (NumberFormatException e) {
+            textFieldSearch.setText("Number_pls");
+        }
+    }
+
+    public void searchUserVIP() {
+        String s = textFieldSearch.getText();
+        usersData.removeAll(usersData);
+        tableViewUsers.setItems(usersData);
+        for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+            if (((UserAccount) o).getUserVIP() == (Boolean.parseBoolean(s))) {
+                //System.out.println("yep");
+                usersData.add((UserAccount) o);
+            }
         }
     }
 }

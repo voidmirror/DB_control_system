@@ -119,10 +119,16 @@
                   <TextField id="textFieldBlackMatterInput" fx:id="textFieldBlackMatterInput" layoutX="323.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Black Matter" AnchorPane.bottomAnchor="40.0" />
                   <TextField id="textFieldUserLevelInput" fx:id="textFieldUserLevelInput" layoutX="413.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Level" AnchorPane.bottomAnchor="40.0" />
                   <CheckBox id="checkBoxVIPInput" fx:id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="44.0" />
-                  <Button id="btnSearch" fx:id="btnSearch" layoutX="521.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnRefresh" fx:id="btnRefresh" layoutX="466.0" layoutY="292.0" mnemonicParsing="false" onAction="#refreshTableView" onMouseEntered="#initFromFile" text="Refresh" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnRead" fx:id="btnRead" layoutX="414.0" layoutY="292.0" mnemonicParsing="false" onAction="#initFromFile" prefHeight="25.0" prefWidth="52.0" text="Read" AnchorPane.bottomAnchor="15.0" />
-                  <Button layoutX="362.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnSearch" fx:id="btnSearch" layoutX="537.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRefresh" fx:id="btnRefresh" layoutX="481.0" layoutY="292.0" mnemonicParsing="false" onAction="#refreshTableView" onMouseEntered="#initFromFile" text="Refresh" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRead" fx:id="btnRead" layoutX="435.0" layoutY="292.0" mnemonicParsing="false" onAction="#initFromFile" prefHeight="25.0" prefWidth="46.0" text="Read" AnchorPane.bottomAnchor="15.0" />
+                  <TextField id="textFieldSearch" fx:id="textFieldSearch" layoutX="17.0" layoutY="292.0" prefHeight="25.0" prefWidth="90.0" promptText="Search" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnUserNameSearch" onAction="#searchUserName" layoutX="107.0" layoutY="292.0" mnemonicParsing="false" text="name" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnPasswordSearch" onAction="#searchPassword" layoutX="153.0" layoutY="292.0" mnemonicParsing="false" text="pass" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnEmailSearch" onAction="#searchEmail" layoutX="193.0" layoutY="292.0" mnemonicParsing="false" text="email" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnBlackMatterSearch" onAction="#searchBlackMatter" layoutX="238.0" layoutY="292.0" mnemonicParsing="false" text="BMatter" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnUserLevelSearch" onAction="#searchUserLevel" layoutX="297.0" layoutY="292.0" mnemonicParsing="false" text="lvl" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnUserVIPSearch" onAction="#searchUserVIP" layoutX="325.0" layoutY="292.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="15.0" />
                </children></AnchorPane>
           </content>
       </Tab>
