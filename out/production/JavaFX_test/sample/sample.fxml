@@ -110,7 +110,7 @@
           <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="17.0" layoutY="12.0" prefHeight="309.0" prefWidth="576.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
+                  <TableView layoutX="17.0" layoutY="12.0" prefHeight="243.0" prefWidth="576.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
                     <columns>
                       <TableColumn id="columnUserName" fx:id="columnUserName" prefWidth="95.0" text="User Name" />
                       <TableColumn id="columnPassword" fx:id="columnPassword" prefWidth="81.0" text="Password" />
@@ -120,6 +120,16 @@
                         <TableColumn id="columnVIP" fx:id="columnVIP" prefWidth="54.0" text="VIP" />
                     </columns>
                   </TableView>
+                  <TextField id="textFieldUserNameInput" layoutX="17.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Name" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="passwordFieldInput" layoutX="107.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Password" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="textFieldEmailInput" layoutX="197.0" layoutY="267.0" prefHeight="25.0" prefWidth="126.0" promptText="E-mail" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="textFieldBlackMatterInput" layoutX="323.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Black Matter" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="textFieldUserLevelInput" layoutX="413.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Level" AnchorPane.bottomAnchor="40.0" />
+                  <CheckBox id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" />
+                  <Button id="btnSearch" layoutX="518.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
+                  <Button layoutX="466.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
+                  <Button layoutX="414.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
+                  <Button layoutX="362.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
                </children></AnchorPane>
           </content>
       </Tab>
