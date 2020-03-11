@@ -93,24 +93,17 @@
                         </Button>
                      </children>
                   </GridPane>
+                  <Button id="btnDelete" fx:id="btnDelete" layoutX="530.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteDataBase" text="Delete DB" textFill="RED" AnchorPane.bottomAnchor="14.0" />
+                  <TextField id="textFieldDelete" fx:id="textFieldDelete" layoutX="451.0" layoutY="293.0" prefHeight="25.0" prefWidth="79.0" promptText="write: delete" AnchorPane.bottomAnchor="14.0" />
                </children></AnchorPane>
       </content>
     </Tab>
-
-      <Tab fx:id="tabDataBaseSearch" closable="false" text="Data Search">
-          <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                  <children>
-
-                  </children></AnchorPane>
-          </content>
-      </Tab>
 
       <Tab fx:id="tabDataTable" closable="false" text="Data Table">
           <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="17.0" layoutY="12.0" prefHeight="243.0" prefWidth="576.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
+                  <TableView id="tableViewUsers" fx:id="tableViewUsers" layoutX="17.0" layoutY="12.0" prefHeight="243.0" prefWidth="576.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
                     <columns>
                       <TableColumn id="columnUserName" fx:id="columnUserName" prefWidth="95.0" text="User Name" />
                       <TableColumn id="columnPassword" fx:id="columnPassword" prefWidth="81.0" text="Password" />
@@ -125,10 +118,10 @@
                   <TextField id="textFieldEmailInput" layoutX="197.0" layoutY="267.0" prefHeight="25.0" prefWidth="126.0" promptText="E-mail" AnchorPane.bottomAnchor="40.0" />
                   <TextField id="textFieldBlackMatterInput" layoutX="323.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Black Matter" AnchorPane.bottomAnchor="40.0" />
                   <TextField id="textFieldUserLevelInput" layoutX="413.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Level" AnchorPane.bottomAnchor="40.0" />
-                  <CheckBox id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" />
-                  <Button id="btnSearch" layoutX="518.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
-                  <Button layoutX="466.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
-                  <Button layoutX="414.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
+                  <CheckBox id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="44.0" />
+                  <Button id="btnSearch" fx:id="btnSearch" layoutX="521.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRefresh" fx:id="btnRefresh" layoutX="466.0" layoutY="292.0" mnemonicParsing="false" onAction="#refreshTableView" onMouseEntered="#initFromFile" text="Refresh" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRead" fx:id="btnRead" layoutX="414.0" layoutY="292.0" mnemonicParsing="false" onAction="#initFromFile" prefHeight="25.0" prefWidth="52.0" text="Read" AnchorPane.bottomAnchor="15.0" />
                   <Button layoutX="362.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
                </children></AnchorPane>
           </content>

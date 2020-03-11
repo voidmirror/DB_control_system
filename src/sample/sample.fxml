@@ -93,6 +93,8 @@
                         </Button>
                      </children>
                   </GridPane>
+                  <Button id="btnDelete" fx:id="btnDelete" layoutX="530.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteDataBase" text="Delete DB" textFill="RED" AnchorPane.bottomAnchor="14.0" />
+                  <TextField id="textFieldDelete" fx:id="textFieldDelete" layoutX="451.0" layoutY="293.0" prefHeight="25.0" prefWidth="79.0" promptText="write: delete" AnchorPane.bottomAnchor="14.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -111,15 +113,15 @@
                         <TableColumn id="columnVIP" fx:id="columnVIP" prefWidth="54.0" text="VIP" />
                     </columns>
                   </TableView>
-                  <TextField id="textFieldUserNameInput" layoutX="17.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Name" AnchorPane.bottomAnchor="40.0" />
-                  <TextField id="passwordFieldInput" layoutX="107.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Password" AnchorPane.bottomAnchor="40.0" />
-                  <TextField id="textFieldEmailInput" layoutX="197.0" layoutY="267.0" prefHeight="25.0" prefWidth="126.0" promptText="E-mail" AnchorPane.bottomAnchor="40.0" />
-                  <TextField id="textFieldBlackMatterInput" layoutX="323.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Black Matter" AnchorPane.bottomAnchor="40.0" />
-                  <TextField id="textFieldUserLevelInput" layoutX="413.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Level" AnchorPane.bottomAnchor="40.0" />
-                  <CheckBox id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="44.0" />
-                  <Button id="btnSearch" layoutX="518.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
-                  <Button layoutX="466.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
-                  <Button layoutX="414.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
+                  <TextField id="textFieldUserNameInput" fx:id="textFieldUserNameInput" layoutX="17.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Name" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="passwordFieldInput" fx:id="passwordFieldInput" layoutX="107.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Password" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="textFieldEmailInput" fx:id="textFieldEmailInput" layoutX="197.0" layoutY="267.0" prefHeight="25.0" prefWidth="126.0" promptText="E-mail" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="textFieldBlackMatterInput" fx:id="textFieldBlackMatterInput" layoutX="323.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Black Matter" AnchorPane.bottomAnchor="40.0" />
+                  <TextField id="textFieldUserLevelInput" fx:id="textFieldUserLevelInput" layoutX="413.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Level" AnchorPane.bottomAnchor="40.0" />
+                  <CheckBox id="checkBoxVIPInput" fx:id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="44.0" />
+                  <Button id="btnSearch" fx:id="btnSearch" layoutX="521.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRefresh" fx:id="btnRefresh" layoutX="466.0" layoutY="292.0" mnemonicParsing="false" onAction="#refreshTableView" onMouseEntered="#initFromFile" text="Refresh" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRead" fx:id="btnRead" layoutX="414.0" layoutY="292.0" mnemonicParsing="false" onAction="#initFromFile" prefHeight="25.0" prefWidth="52.0" text="Read" AnchorPane.bottomAnchor="15.0" />
                   <Button layoutX="362.0" layoutY="292.0" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="15.0" />
                </children></AnchorPane>
           </content>

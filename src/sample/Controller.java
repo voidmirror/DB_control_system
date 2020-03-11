@@ -17,11 +17,10 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URI;
+import java.nio.CharBuffer;
 import java.nio.file.*;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
+
 
 
 public class Controller {
@@ -41,10 +40,27 @@ public class Controller {
     private TextField textFieldUserLevel;
     @FXML
     private CheckBox checkBoxVIP;
+    @FXML
+    private TextField textFieldDelete;
+
+    @FXML
+    private TextField textFieldUserNameInput;
+    @FXML
+    private TextField passwordFieldInput;
+    @FXML
+    private TextField textFieldEmailInput;
+    @FXML
+    private TextField textFieldBlackMatterInput;
+    @FXML
+    private TextField textFieldUserLevelInput;
+    @FXML
+    private CheckBox checkBoxVIPInput;
 
     // buttons
     @FXML
     private Button btnClear;
+    @FXML
+    private Button btnDelete;
 
     // labels
     @FXML
@@ -54,185 +70,22 @@ public class Controller {
     @FXML
     private TableView tableViewUsers;
     @FXML
-    private TableColumn columnUserName;
+    private TableColumn<UserAccount, String> columnUserName;
     @FXML
-    private TableColumn columnPassword;
+    private TableColumn<UserAccount, String> columnPassword;
     @FXML
-    private TableColumn columnEmail;
+    private TableColumn<UserAccount, String> columnEmail;
     @FXML
-    private TableColumn columnBlackMatter;
+    private TableColumn<UserAccount, Integer> columnBlackMatter;
     @FXML
-    private TableColumn columnUserLevel;
+    private TableColumn<UserAccount, Integer> columnUserLevel;
     @FXML
-    private TableColumn columnVIP;
+    private TableColumn<UserAccount, Boolean> columnVIP;
 
-    private ObservableList<UserAccount> usersData = new ObservableList<UserAccount>() {
-        @Override
-        public void addListener(ListChangeListener<? super UserAccount> listChangeListener) {
+    // fields
+    private ObservableList<UserAccount> usersData = FXCollections.observableArrayList();
 
-        }
-
-        @Override
-        public void removeListener(ListChangeListener<? super UserAccount> listChangeListener) {
-
-        }
-
-        @Override
-        public boolean addAll(UserAccount... userAccounts) {
-            return false;
-        }
-
-        @Override
-        public boolean setAll(UserAccount... userAccounts) {
-            return false;
-        }
-
-        @Override
-        public boolean setAll(Collection<? extends UserAccount> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean removeAll(UserAccount... userAccounts) {
-            return false;
-        }
-
-        @Override
-        public boolean retainAll(UserAccount... userAccounts) {
-            return false;
-        }
-
-        @Override
-        public void remove(int i, int i1) {
-
-        }
-
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public boolean contains(Object o) {
-            return false;
-        }
-
-        @Override
-        public Iterator<UserAccount> iterator() {
-            return null;
-        }
-
-        @Override
-        public Object[] toArray() {
-            return new Object[0];
-        }
-
-        @Override
-        public <T> T[] toArray(T[] ts) {
-            return null;
-        }
-
-        @Override
-        public boolean add(UserAccount account) {
-            return false;
-        }
-
-        @Override
-        public boolean remove(Object o) {
-            return false;
-        }
-
-        @Override
-        public boolean containsAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(Collection<? extends UserAccount> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(int i, Collection<? extends UserAccount> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean removeAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean retainAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public void clear() {
-
-        }
-
-        @Override
-        public UserAccount get(int i) {
-            return null;
-        }
-
-        @Override
-        public UserAccount set(int i, UserAccount account) {
-            return null;
-        }
-
-        @Override
-        public void add(int i, UserAccount account) {
-
-        }
-
-        @Override
-        public UserAccount remove(int i) {
-            return null;
-        }
-
-        @Override
-        public int indexOf(Object o) {
-            return 0;
-        }
-
-        @Override
-        public int lastIndexOf(Object o) {
-            return 0;
-        }
-
-        @Override
-        public ListIterator<UserAccount> listIterator() {
-            return null;
-        }
-
-        @Override
-        public ListIterator<UserAccount> listIterator(int i) {
-            return null;
-        }
-
-        @Override
-        public List<UserAccount> subList(int i, int i1) {
-            return null;
-        }
-
-        @Override
-        public void addListener(InvalidationListener invalidationListener) {
-
-        }
-
-        @Override
-        public void removeListener(InvalidationListener invalidationListener) {
-
-        }
-    };
-
+    // methods
     public String getTextFieldUserName() {
         return textFieldUserName.getText();
     }
@@ -289,7 +142,6 @@ public class Controller {
                 pauseTransition,
                 labelLogFadeOutTransition
         );
-        //sequentialTransition.delayProperty().setValue(Duration.millis(1000));
 
         sequentialTransition.play();
     }
@@ -316,43 +168,142 @@ public class Controller {
 
         sequentialTransition.play();
 
-        String path = "src\\sample\\database.txt";
-        File dataBase = new File(path);
-        try {
-            FileWriter fileWriter = new FileWriter(dataBase, true);
-            fileWriter.append("hell yeah");
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if (Main.accountList.getDataBaseHashMap().containsKey(getTextFieldUserName()) == false) {
 
-        Main.accountList.getDataBaseHashMap().put(getTextFieldUserName(), new UserAccount(
-                getTextFieldUserName(),
-                getPasswordField(),
-                getTextFieldEmail(),
-                getTextFieldBlackMatter(),
-                getTextFieldUserLevel(),
-                getCheckBoxVIP()));
-//        System.out.println(Main.accountList.getDataBaseHashMap().get("hey"));
-//        System.out.println(Main.accountList.getDataBaseHashMap().get("hep"));
+            String path = "src\\sample\\database.txt";
+            File dataBase = new File(path);
+            try {
+                FileWriter fileWriter = new FileWriter(dataBase, true);
+                fileWriter.append(getTextFieldUserName() + " " + getPasswordField() + " " + getTextFieldEmail() + " " + getTextFieldBlackMatter() + " " + getTextFieldUserLevel() + " " + getCheckBoxVIP());
+                fileWriter.append("\n");
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        //TODO: separate function of listing all objects
-        for (Object o : Main.accountList.getDataBaseHashMap().keySet()) {
-            System.out.println(Main.accountList.getDataBaseHashMap().get(o));
+            Main.accountList.getDataBaseHashMap().put(getTextFieldUserName(), new UserAccount(
+                    getTextFieldUserName(),
+                    getPasswordField(),
+                    getTextFieldEmail(),
+                    getTextFieldBlackMatter(),
+                    getTextFieldUserLevel(),
+                    getCheckBoxVIP()));
+
+            //TODO: separate function of listing all objects
+            for (Object o : Main.accountList.getDataBaseHashMap().keySet()) {
+                System.out.println(Main.accountList.getDataBaseHashMap().get(o));
+            }
+            System.out.println("-----------------------");
+
+        } else {
+            //TODO: labelLog transition
+            System.out.println("Account already exists");
         }
-        System.out.println("-----------------------");
 
         //Path file = Paths.get("D:/Programmes files 7/GitHub/Repositories/JavaFX_test/src/sample/database.txt");
         //File dataBase = new File();
 
         //FileOutputStream outputStream = new FileOutputStream(dataBase, true);
-        //FileWriter fileWriter = new FileWriter("src/database.txt", true);
+//        try {
+//            FileWriter fileWriter = new FileWriter("src/database.txt", true);
+//            fileWriter.write(getTextFieldUserName() + " " + getPasswordField() + " " + getTextFieldEmail() + " " + getTextFieldBlackMatter() + " " + getTextFieldUserLevel() + " " + getCheckBoxVIP());
+//            fileWriter.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
-    public void initializeTableView() {
-        //columnUserName.setCellValueFactory(new PropertyValueFactory<>());
-        for (int i = 0; i < Main.accountList.getDataBaseHashMap().size(); i++) {
-            //TODO: usersData.add
+    public void refreshTableView() {
+        int i = 0;
+        usersData.removeAll(usersData);
+        tableViewUsers.setItems(usersData);
+        System.out.println();
+        System.out.println();
+        for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+            usersData.add((UserAccount) o);
+            System.out.println(++i);
+        }
+
+        columnUserName.setCellValueFactory(new PropertyValueFactory<UserAccount, String>("userName"));
+        columnPassword.setCellValueFactory(new PropertyValueFactory<UserAccount, String>("password"));
+        columnEmail.setCellValueFactory(new PropertyValueFactory<UserAccount, String>("email"));
+        columnBlackMatter.setCellValueFactory(new PropertyValueFactory<UserAccount, Integer>("blackMatter"));
+        columnUserLevel.setCellValueFactory(new PropertyValueFactory<UserAccount, Integer>("userLevel"));
+        columnVIP.setCellValueFactory(new PropertyValueFactory<UserAccount, Boolean>("userVIP"));
+
+        System.out.println("loaded");
+        tableViewUsers.setItems(usersData);
+
+        System.out.println("set");
+    }
+
+    public void initFromFile() {
+        String path = "src\\sample\\database.txt";
+        File dataBase = new File(path);
+
+        try {
+            try {
+                FileReader fileReader = new FileReader(dataBase);
+            } catch (FileNotFoundException e) {
+                FileWriter fileWriter = new FileWriter(dataBase);
+            }
+            FileReader fileReader = new FileReader(dataBase);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String s;
+            StringBuffer stringBuffer = new StringBuffer();
+//            int ch;
+//            while (((ch=fileReader.read()) != -1) ) {
+//                stringBuffer.append((char)ch);
+//                fileReader
+//            }
+
+            s = bufferedReader.readLine();
+            while (s != null) {
+//                stringBuffer.append(s);
+//                System.out.println(stringBuffer);
+                System.out.println(s);
+
+                ArrayList<String> arrayList = new ArrayList<String>();
+                for (String retval : s.split(" ")) {
+                    arrayList.add(retval);
+                }
+                if (Main.accountList.getDataBaseHashMap().containsKey(getTextFieldUserName()) == false) {
+                    Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
+                }
+
+//                    stringBuffer.delete(0, stringBuffer.length());
+//                System.out.println(stringBuffer);
+                s = bufferedReader.readLine();
+            }
+
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteDataBase() {
+        if (textFieldDelete.getText().equals("delete")) {
+            String path = "src\\sample\\database.txt";
+            File dataBase = new File(path);
+
+            if (dataBase.delete()) {
+                System.out.println("DataBase deleted");
+            } else {
+                System.out.println("File does not exist");
+            }
+            textFieldDelete.setText("");
+        } else {
+            //TODO: labelLog transition
+            System.out.println("Check failed");
+            textFieldDelete.setText("");
         }
     }
 }
