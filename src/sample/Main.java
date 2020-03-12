@@ -22,23 +22,6 @@ public class Main extends Application {
 
         accountList.createHashMap();
 
-        //UserAccount first = new UserAccount();
-//        accountList.getDataBaseHashMap().put("first", new UserAccount());
-//        accountList.getDataBaseHashMap().put("stop", "step");
-//        accountList.getDataBaseHashMap().put("caa", "step");
-//        accountList.getDataBaseHashMap().put("baa", "step");
-//        accountList.getDataBaseHashMap().put("1aaa", "step");
-        //accountList.getDataBaseHashMap().get("stop");
-//        System.out.println(accountList.getDataBaseHashMap().get("stop"));
-//        System.out.println(accountList.getDataBaseHashMap().keySet());
-//        for (Object o : accountList.getDataBaseHashMap().keySet()) {
-//            System.out.println(o);
-//        }
-//        System.out.println(accountList.getDataBaseHashMap().get("first"));
-//        System.out.println(accountList.accountsNumber());
-//        accountList.getDataBaseHashMap().remove("first");
-//        System.out.println(accountList.accountsNumber());
-
         //timeMeasure();
         launch(args);
     }
@@ -51,61 +34,16 @@ public class Main extends Application {
         }
         if (Main.accountList.getDataBaseHashMap().containsKey(arrayList.get(0)) == false) {
             Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
-//            try {
-//                FileWriter fileWriter = new FileWriter(dataBase);
-//                fileWriter.append(arrayList.get(0) + " " + arrayList.get(1) + " " + arrayList.get(2) + " " + Integer.parseInt(arrayList.get(3)) + " " + Integer.parseInt(arrayList.get(4)) + " " + Boolean.parseBoolean(arrayList.get(5)));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
         }
 
 
     }
 
     public static void removeAccount(String s) {
-//        String s = textFieldSearch.getText();
         if (Main.accountList.getDataBaseHashMap().containsKey(s)) {
             Main.accountList.getDataBaseHashMap().remove(s);
-//            System.out.println();
-//            System.out.println();
-//            System.out.println("remove?");
-////            deleteDataBaseMain();
-//            //initFromFile();
-//            String path = "src\\sample\\database.txt";
-//            File dataBase = new File(path);
-//            try {
-//                FileWriter fileWriter = new FileWriter(dataBase);
-//                fileWriter.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            for (Object o : Main.accountList.getDataBaseHashMap().values()) {
-////                ((UserAccount) o)
-//
-//                try {
-//                    FileWriter fileWriter = new FileWriter(dataBase, true);
-//                    fileWriter.append(((UserAccount) o).getUserName() + " " + ((UserAccount) o).getPassword() + " " + ((UserAccount) o).getEmail() + " " + ((UserAccount) o).getBlackMatter() + " " + ((UserAccount) o).getUserLevel() + " " + ((UserAccount) o).getUserVIP());
-//                    fileWriter.append("\n");
-//                    System.out.println();
-//                    System.out.println("written?");
-//                    fileWriter.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
         }
     }
-
-//    public static void deleteDataBaseMain() {
-//        String path = "src\\sample\\database.txt";
-//        File dataBase = new File(path);
-//
-//        if (dataBase.delete()) {
-//            System.out.println("DataBase deleted");
-//        } else {
-//            System.out.println("File does not exist");
-//        }
-//    }
 
     public static void timeMeasure() {
         long start, finish;

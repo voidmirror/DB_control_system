@@ -124,13 +124,6 @@ public class UserAccount {
 
     @Override
     public String toString() {
-//        System.out.println(userID);
-//
-//        System.out.println(userName);
-//        System.out.println(password);
-//        System.out.println(email);
-//        System.out.println(blackMatter);
-//        System.out.println(userVIP);
         String str = "\nUser ID: " + userID + "\nUserName: " + userName + "\nPassword: " + password + "\nEmail: " + email + "\nBlack Matter: " + blackMatter + "\nIs VIP: " + userVIP;
         return str;
     }

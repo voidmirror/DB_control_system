@@ -420,46 +420,15 @@ public class Controller {
     public void addAccount(String s) {
         String path = "src\\sample\\database.txt";
         File dataBase = new File(path);
+            System.out.println(s);
 
-//        try {
-//            try {
-//                FileReader fileReader = new FileReader(dataBase);
-//            } catch (FileNotFoundException e) {
-//                FileWriter fileWriter = new FileWriter(dataBase);
-//            }
-//            FileReader fileReader = new FileReader(dataBase);
-//            BufferedReader bufferedReader = new BufferedReader(fileReader);
-//            //String s;
-//            //StringBuffer stringBuffer = new StringBuffer();
-//
-//            s = bufferedReader.readLine();
-//            while (s != null) {
-                System.out.println(s);
-
-                ArrayList<String> arrayList = new ArrayList<String>();
-                for (String retval : s.split(" ")) {
-                    arrayList.add(retval);
-                }
-                if (Main.accountList.getDataBaseHashMap().containsKey(arrayList.get(0)) == false) {
-                    Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
-                }
-
-//                    stringBuffer.delete(0, stringBuffer.length());
-//                System.out.println(stringBuffer);
-//                s = bufferedReader.readLine();
-//            }
-
-//            try {
-//                fileReader.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+            ArrayList<String> arrayList = new ArrayList<String>();
+            for (String retval : s.split(" ")) {
+                arrayList.add(retval);
+            }
+            if (Main.accountList.getDataBaseHashMap().containsKey(arrayList.get(0)) == false) {
+                Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
+            }
     }
 
     public void createBackup() {
@@ -472,7 +441,6 @@ public class Controller {
             e.printStackTrace();
         }
         for (Object o : Main.accountList.getDataBaseHashMap().values()) {
-//                ((UserAccount) o)
 
             try {
                 FileWriter fileWriter = new FileWriter(dataBase, true);
@@ -514,8 +482,6 @@ public class Controller {
                     Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
                 }
 
-//                    stringBuffer.delete(0, stringBuffer.length());
-//                System.out.println(stringBuffer);
                 s = bufferedReader.readLine();
             }
 
