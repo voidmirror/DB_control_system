@@ -243,6 +243,7 @@ public class Controller {
         columnUserLevel.setCellValueFactory(new PropertyValueFactory<UserAccount, Integer>("userLevel"));
         columnVIP.setCellValueFactory(new PropertyValueFactory<UserAccount, Boolean>("userVIP"));
 
+
         System.out.println("loaded");
         tableViewUsers.setItems(usersData);
 
@@ -391,4 +392,6 @@ public class Controller {
             }
         }
     }
+
+
 }

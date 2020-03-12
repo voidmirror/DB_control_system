@@ -37,7 +37,4 @@ public class AccountList {
         }
         return i;
     }
-
-
-    //TODO: removing accounts by field value (new ArrayList, if values equals then key-->ArrayList. Remove from hashMap by ArrayList)
 }

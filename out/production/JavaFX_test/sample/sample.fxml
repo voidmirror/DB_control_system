@@ -103,14 +103,14 @@
           <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView id="tableViewUsers" fx:id="tableViewUsers" layoutX="17.0" layoutY="12.0" prefHeight="243.0" prefWidth="576.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
+                  <TableView id="tableViewUsers" fx:id="tableViewUsers" editable="true" layoutX="17.0" layoutY="12.0" prefHeight="243.0" prefWidth="576.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="12.0">
                     <columns>
-                      <TableColumn id="columnUserName" fx:id="columnUserName" prefWidth="95.0" text="User Name" />
-                      <TableColumn id="columnPassword" fx:id="columnPassword" prefWidth="81.0" text="Password" />
-                        <TableColumn id="columnEmail" fx:id="columnEmail" prefWidth="197.0" text="E-mail" />
-                        <TableColumn id="columnBlackMatter" fx:id="columnBlackMatter" prefWidth="86.0" text="Black Matter" />
-                        <TableColumn id="columnUserLevel" fx:id="columnUserLevel" prefWidth="62.0" text="User Level" />
-                        <TableColumn id="columnVIP" fx:id="columnVIP" prefWidth="54.0" text="VIP" />
+                      <TableColumn id="columnUserName" fx:id="columnUserName" prefWidth="95.0" sortType="DESCENDING" text="User Name" />
+                      <TableColumn id="columnPassword" fx:id="columnPassword" prefWidth="81.0" sortType="DESCENDING" text="Password" />
+                        <TableColumn id="columnEmail" fx:id="columnEmail" prefWidth="197.0" sortType="DESCENDING" text="E-mail" />
+                        <TableColumn id="columnBlackMatter" fx:id="columnBlackMatter" prefWidth="86.0" sortType="DESCENDING" text="Black Matter" />
+                        <TableColumn id="columnUserLevel" fx:id="columnUserLevel" prefWidth="62.0" sortType="DESCENDING" text="User Level" />
+                        <TableColumn id="columnVIP" fx:id="columnVIP" prefWidth="54.0" sortType="DESCENDING" text="VIP" />
                     </columns>
                   </TableView>
                   <TextField id="textFieldUserNameInput" fx:id="textFieldUserNameInput" layoutX="17.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Name" AnchorPane.bottomAnchor="40.0" />
@@ -123,12 +123,12 @@
                   <Button id="btnRefresh" fx:id="btnRefresh" layoutX="481.0" layoutY="292.0" mnemonicParsing="false" onAction="#refreshTableView" onMouseEntered="#initFromFile" text="Refresh" AnchorPane.bottomAnchor="15.0" />
                   <Button id="btnRead" fx:id="btnRead" layoutX="435.0" layoutY="292.0" mnemonicParsing="false" onAction="#initFromFile" prefHeight="25.0" prefWidth="46.0" text="Read" AnchorPane.bottomAnchor="15.0" />
                   <TextField id="textFieldSearch" fx:id="textFieldSearch" layoutX="17.0" layoutY="292.0" prefHeight="25.0" prefWidth="90.0" promptText="Search" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnUserNameSearch" onAction="#searchUserName" layoutX="107.0" layoutY="292.0" mnemonicParsing="false" text="name" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnPasswordSearch" onAction="#searchPassword" layoutX="153.0" layoutY="292.0" mnemonicParsing="false" text="pass" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnEmailSearch" onAction="#searchEmail" layoutX="193.0" layoutY="292.0" mnemonicParsing="false" text="email" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnBlackMatterSearch" onAction="#searchBlackMatter" layoutX="238.0" layoutY="292.0" mnemonicParsing="false" text="BMatter" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnUserLevelSearch" onAction="#searchUserLevel" layoutX="297.0" layoutY="292.0" mnemonicParsing="false" text="lvl" AnchorPane.bottomAnchor="15.0" />
-                  <Button id="btnUserVIPSearch" onAction="#searchUserVIP" layoutX="325.0" layoutY="292.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnUserNameSearch" layoutX="107.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchUserName" text="name" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnPasswordSearch" layoutX="153.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchPassword" text="pass" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnEmailSearch" layoutX="193.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchEmail" text="email" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnBlackMatterSearch" layoutX="238.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchBlackMatter" text="BMatter" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnUserLevelSearch" layoutX="297.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchUserLevel" text="lvl" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnUserVIPSearch" layoutX="325.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchUserVIP" text="VIP" AnchorPane.bottomAnchor="15.0" />
                </children></AnchorPane>
           </content>
       </Tab>
