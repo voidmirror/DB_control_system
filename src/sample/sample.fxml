@@ -119,7 +119,7 @@
                   <TextField id="textFieldBlackMatterInput" fx:id="textFieldBlackMatterInput" layoutX="323.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="Black Matter" AnchorPane.bottomAnchor="40.0" />
                   <TextField id="textFieldUserLevelInput" fx:id="textFieldUserLevelInput" layoutX="413.0" layoutY="267.0" prefHeight="25.0" prefWidth="90.0" promptText="User Level" AnchorPane.bottomAnchor="40.0" />
                   <CheckBox id="checkBoxVIPInput" fx:id="checkBoxVIPInput" layoutX="531.0" layoutY="271.0" mnemonicParsing="false" text="VIP" AnchorPane.bottomAnchor="44.0" />
-                  <Button id="btnSearch" fx:id="btnSearch" layoutX="537.0" layoutY="292.0" mnemonicParsing="false" text="Search" AnchorPane.bottomAnchor="15.0" />
+                  <Button id="btnRemove" fx:id="btnRemove" onAction="#removeAccount" layoutX="537.0" layoutY="292.0" mnemonicParsing="false" text="Remove" AnchorPane.bottomAnchor="15.0" />
                   <Button id="btnRefresh" fx:id="btnRefresh" layoutX="481.0" layoutY="292.0" mnemonicParsing="false" onAction="#refreshTableView" onMouseEntered="#initFromFile" text="Refresh" AnchorPane.bottomAnchor="15.0" />
                   <Button id="btnRead" fx:id="btnRead" layoutX="435.0" layoutY="292.0" mnemonicParsing="false" onAction="#initFromFile" prefHeight="25.0" prefWidth="46.0" text="Read" AnchorPane.bottomAnchor="15.0" />
                   <TextField id="textFieldSearch" fx:id="textFieldSearch" layoutX="17.0" layoutY="292.0" prefHeight="25.0" prefWidth="90.0" promptText="Search" AnchorPane.bottomAnchor="15.0" />

@@ -212,17 +212,7 @@ public class Controller {
             System.out.println("Account already exists");
         }
 
-        //Path file = Paths.get("D:/Programmes files 7/GitHub/Repositories/JavaFX_test/src/sample/database.txt");
-        //File dataBase = new File();
 
-        //FileOutputStream outputStream = new FileOutputStream(dataBase, true);
-//        try {
-//            FileWriter fileWriter = new FileWriter("src/database.txt", true);
-//            fileWriter.write(getTextFieldUserName() + " " + getPasswordField() + " " + getTextFieldEmail() + " " + getTextFieldBlackMatter() + " " + getTextFieldUserLevel() + " " + getCheckBoxVIP());
-//            fileWriter.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public void refreshTableView() {
@@ -393,5 +383,152 @@ public class Controller {
         }
     }
 
+    public void removeAccount() {
+        String s = textFieldSearch.getText();
+        if (Main.accountList.getDataBaseHashMap().containsKey(s)) {
+            Main.accountList.getDataBaseHashMap().remove(s);
+            System.out.println();
+            System.out.println();
+            System.out.println("remove?");
+            deleteDataBase();
+            //initFromFile();
+            String path = "src\\sample\\database.txt";
+            File dataBase = new File(path);
+            try {
+                FileWriter fileWriter = new FileWriter(dataBase);
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+//                ((UserAccount) o)
 
+                try {
+                    FileWriter fileWriter = new FileWriter(dataBase, true);
+                    fileWriter.append(((UserAccount) o).getUserName() + " " + ((UserAccount) o).getPassword() + " " + ((UserAccount) o).getEmail() + " " + ((UserAccount) o).getBlackMatter() + " " + ((UserAccount) o).getUserLevel() + " " + ((UserAccount) o).getUserVIP());
+                    fileWriter.append("\n");
+                    System.out.println();
+                    System.out.println("written?");
+                    fileWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void addAccount(String s) {
+        String path = "src\\sample\\database.txt";
+        File dataBase = new File(path);
+
+//        try {
+//            try {
+//                FileReader fileReader = new FileReader(dataBase);
+//            } catch (FileNotFoundException e) {
+//                FileWriter fileWriter = new FileWriter(dataBase);
+//            }
+//            FileReader fileReader = new FileReader(dataBase);
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            //String s;
+//            //StringBuffer stringBuffer = new StringBuffer();
+//
+//            s = bufferedReader.readLine();
+//            while (s != null) {
+                System.out.println(s);
+
+                ArrayList<String> arrayList = new ArrayList<String>();
+                for (String retval : s.split(" ")) {
+                    arrayList.add(retval);
+                }
+                if (Main.accountList.getDataBaseHashMap().containsKey(arrayList.get(0)) == false) {
+                    Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
+                }
+
+//                    stringBuffer.delete(0, stringBuffer.length());
+//                System.out.println(stringBuffer);
+//                s = bufferedReader.readLine();
+//            }
+
+//            try {
+//                fileReader.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public void createBackup() {
+        String path = "src\\sample\\databaseBACKUP.txt";
+        File dataBase = new File(path);
+        try {
+            FileWriter fileWriter = new FileWriter(dataBase);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (Object o : Main.accountList.getDataBaseHashMap().values()) {
+//                ((UserAccount) o)
+
+            try {
+                FileWriter fileWriter = new FileWriter(dataBase, true);
+                fileWriter.append(((UserAccount) o).getUserName() + " " + ((UserAccount) o).getPassword() + " " + ((UserAccount) o).getEmail() + " " + ((UserAccount) o).getBlackMatter() + " " + ((UserAccount) o).getUserLevel() + " " + ((UserAccount) o).getUserVIP());
+                fileWriter.append("\n");
+                System.out.println();
+                System.out.println("written?");
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void restoreBackup() {
+        String path = "src\\sample\\databaseBACKUP.txt";
+        File dataBase = new File(path);
+
+        try {
+            try {
+                FileReader fileReader = new FileReader(dataBase);
+            } catch (FileNotFoundException e) {
+                FileWriter fileWriter = new FileWriter(dataBase);
+            }
+            FileReader fileReader = new FileReader(dataBase);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String s;
+            StringBuffer stringBuffer = new StringBuffer();
+
+            s = bufferedReader.readLine();
+            while (s != null) {
+                System.out.println(s);
+
+                ArrayList<String> arrayList = new ArrayList<String>();
+                for (String retval : s.split(" ")) {
+                    arrayList.add(retval);
+                }
+                if (Main.accountList.getDataBaseHashMap().containsKey(getTextFieldUserName()) == false) {
+                    Main.accountList.getDataBaseHashMap().put(arrayList.get(0), new UserAccount(arrayList.get(0), arrayList.get(1), arrayList.get(2), Integer.parseInt(arrayList.get(3)), Integer.parseInt(arrayList.get(4)), Boolean.parseBoolean(arrayList.get(5))));
+                }
+
+//                    stringBuffer.delete(0, stringBuffer.length());
+//                System.out.println(stringBuffer);
+                s = bufferedReader.readLine();
+            }
+
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
